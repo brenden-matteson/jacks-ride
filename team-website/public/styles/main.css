@@ -31,7 +31,7 @@ header {
 }
 
 :nth-child(2 of .header-container) .header-object {
-    width: 20%;
+    width: 16.6%;
     font-size: larger;
 } 
 
