@@ -1,3 +1,4 @@
+/* START HEADER */
 header {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1),0 2px 10px 0 rgba(0,0,0,0.08);  
 }
@@ -9,7 +10,7 @@ header {
     color: black;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: lightgrey;
     margin: 0;
     padding: 0;
 }
@@ -39,16 +40,24 @@ header {
     text-decoration: none;
     color: black;
 }
+/* END HEADER */
 
+/* BODY START */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-body h2 {
-    text-align: center;
+.body-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    color: black;
+    justify-content: space-evenly;
+    align-items: left;
+    width: 60%;
+    margin-left: 20%;
 }
 
 .body-object {
@@ -56,11 +65,10 @@ body h2 {
     flex-wrap: wrap;
     flex-direction: row;
     color: black;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: space-between;
 }
 
-.body-object li {
+.list li {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -70,10 +78,16 @@ body h2 {
     gap: 10px;
 }
 
-.body-object li img {
+.list li img {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1),0 2px 10px 0 rgba(0,0,0,0.08);  
     width: 160px;
     height: 160px;
     padding: 5px;
     background-color: darkgray;
 }
+
+.downloads {
+    text-align: left;
+    width: 30%;
+}
+/* BODY END */
