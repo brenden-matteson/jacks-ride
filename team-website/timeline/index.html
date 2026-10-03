@@ -5,6 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blue&Gold Transit Collective</title>
     <link rel="stylesheet" href="../public/styles/main.css">
+    <style>
+    .timeline-container {
+        display: flex;
+        align-items: stretch;
+        height: 500px;
+    }
+
+    .timeline {
+        position: relative;
+        width: 60px;
+        flex-shrink: 0;
+    }
+
+    /* Vertical line */
+    .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 25px;
+        bottom: 25px;
+        width: 6px;
+        background-color: #333;
+        transform: translateX(-50%);
+    }
+
+    /* Top arrow */
+    .top-arrow {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 0;
+        height: 0;
+        border-left: 18px solid transparent;
+        border-right: 18px solid transparent;
+        border-bottom: 30px solid #333;
+    }
+
+    /* Bottom arrow */
+    .bottom-arrow {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 0;
+        height: 0;
+        border-left: 18px solid transparent;
+        border-right: 18px solid transparent;
+        border-top: 30px solid #333;
+    }
+
+    /* Text to the right */
+    .content {
+        padding-left: 30px;
+    }
+    </style>
 </head>
 
 <header>
@@ -39,9 +97,22 @@
 </header>
 
 <body>
-    <h1>
-        Timeline: Under Construction...
-    </h1>
+    <div class="body-container">
+    <div class="timeline-container">
+
+        <div class="timeline">
+            <div class="top-arrow"></div>
+            <div class="bottom-arrow"></div>
+        </div>
+
+        <div class="content">
+            <h2>Timeline</h2>
+            <p>under construction</p>
+            <p>for real</p>
+        </div>
+
+    </div>
+    </div>
 </body>
 
 </html>
