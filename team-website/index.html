@@ -4,35 +4,195 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blue&Gold Transit Collective</title>
+    <link rel="stylesheet" href="./public/styles/main.css">
 </head>
 
 <header>
-    <div>
-        <h1>Blue&Gold Transit Collective</h1>
-        <img src="./public/images/b&g logo.png" width="80px" height="80px">
+    <div class="header-container">
+        <div class="header-object">
+            <a href="./"><img src="./public/images/b&g logo.png" width="100px" height="100px"></a>
+        </div>
+        <div class="header-object">
+            <h1>JacksRide</h1>
+        </div>
     </div>
-    <div>
-        <h3>
+    <div class="header-container">
+        <a class="header-object" href="./team-members/">
             Team Members
-        </h3>
-        <ul>
-            <li>
-                Team Leader: Brenden Matteson
-            </li>
-            <li>
-                Maddux Houseman
-            </li>
-            <li>
-                Adolfo Lopez Villanueva
-            </li>
-        </ul>
+        </a>
+        <a class="header-object" href="./technologies/">
+            Technologies
+        </a>
+        <a class="header-object" href="./timeline/">
+            Timeline
+        </a>
+        <a class="header-object" href="./demo/">
+            Demo
+        </a>
+        <a class="header-object" href="./codebase/">
+            Codebase
+        </a>
+        <a class="header-object" href="./documentation/">
+            Documentation
+        </a>
     </div>
 </header>
 
 <body>
-    <h1>
-        Under Construction...
-    </h1>
+    <div class="body-container">
+        <h1>The People Behind JacksRide</h1>
+        <h2>Team Members</h2>
+        <div class="body-object">
+            <div class="list">
+                <li>
+                    <h3>Brenden Matteson, Team Leader</h3>
+                    <img class="headshot" src="./public/images/headshot_bm.png" alt="Head Shot of Brenden Matteson">
+                </li>
+            </div>
+            <div class="list">
+                <li>
+                    <h3>Maddux Houseman</h3>
+                    <img class="headshot" src="./public/images/headshot_mh.png" alt="Head Shot of Maddux Houseman">
+                </li>
+            </div>
+            <div class="list">
+                <li>
+                    <h3>Adolfo Lopez Villanueva</h3>
+                    <img class="headshot" src="./public/images/headshot_alv.png" alt="Head Shot of Adolfo Lopez Villanueva">
+                </li>
+            </div>
+        </div>
+        <h2>Sponsors</h2>
+        <div class="body-object">
+            <div class="list">
+                <li>
+                    <h3>Erik Nielsen, Chief Sustainability Officer from the Office of Sustainability (Green NAU)</h3>
+                    <img src="./public/images/headshot_en.jpg" width="90%" alt="Head Shot of Erik Neilson">
+                    <a href="mailto:Erik.Nielsen@nau.edu">Erik.Nielsen@nau.edu</a>
+                </li>
+            </div>
+            <div class="list">
+                <li>
+                    <h3>Dayna McKay, Sustainability Data Analyst from the Office of Sustainability (Green NAU)</h3>
+                    <img src="./public/images/headshot_dc.png" width="90%" alt="Head Shot of Dayna Cook">
+                    <a href="mailto:Dayna.Cook@nau.edu">Dayna.Cook@nau.edu</a>
+                </li>
+            </div>
+        </div>
+        <h2>Mentor</h2>
+        <div class="body-object">
+            <div class="list">
+                <li>
+                    <h3>Smirthya Somaskantha Iyer, PhD student at Northern Arizona University</h3>
+                    <img class="headshot" src="./public/images/headshot_si.png" width="90%" alt="Head Shot of Smirthya Iyer">
+                    <a href="mailto:ss5695@nau.edu">ss5695@nau.edu</a>
+                </li>
+            </div>
+        </div>
+        <div class="body-object">
+            <h1>The Problem</h1>
+            <p>
+                Our clients have seen how many cars sit idle at NAU for the whole semester 
+                and only go anywhere for weekend trips or to go home at the end of a semester, 
+                with only one person per car, which raises gas emissions. Meanwhile, students 
+                without cars need to find ways to travel long distances to either see family/friends 
+                or attend events or they might feel left out. Common options include purchasing a 
+                ticket to ride a shuttle, using ridesharing apps like Uber or Lyft, and using social 
+                media platforms to contact other students for rides. However, these options come with 
+                different restrictions or limitations that are placed on the student: high prices, 
+                relying on non-students for travel, unreliable platforms to reach other students, 
+                to name a few.  
+            </p>
+        </div>
+        <h1>What is JacksRide?</h1>
+        <p>
+            JacksRide is a rideshare service platform that helps NAU students 
+            save money on long distance travel by providing a secure platform
+            to facilitate carpooling between students.
+        </p>
+        <h1>The Solution</h1>
+        <p>
+            JacksRide was created by another capstone group as an idea to not only 
+            solve gas emissions but also help students to find cheaper options for 
+            travel. The goal for Blue and Gold Transit Collective is to create this 
+            idea into reality. JacksRide will act as a forum where students will 
+            log into their NAU account, via NAU CAS Login, and create either a 
+            driver profile or rider profile. After setting up, the student can now 
+            find rides hosted by other students. Drivers can put up a post explaining 
+            where they are going for this trip and allow other students to ride with them, 
+            with set conditions of course (price being the main one). Riders can either 
+            make their own post, asking Drivers if they are going to their desired location 
+            and can provide information on what they can pitch in, or see any Driver's 
+            post and request to join their ride. All conversations between students will 
+            be in private direct messages. Similarly, students can discuss payment, 
+            pick-up location, and other concerns they might have. At the end of the rides,
+             students can rate each other to help not only build a good image (either as a 
+             driver or rider), but also give new riders a better understanding of which 
+             drivers to pick. All of this will be hosted on a web application within NAUgo app. 
+        </p>
+        <h1>Our Vision</h1>
+        <p>
+            We plan to build a web application accessed through NAUgo where users 
+            can create rider or driver profiles and request or submit rides to 
+            the forum. We plan to build private messaging into the platform to 
+            facilitate communcation between drivers and riders. 
+        </p>
+        <h1>Requirements</h1>
+        <ul>
+            <li>
+                <p>Students can login with NAUID.</p>
+            </li>
+            <li>
+                <p>Students can communicate with one another securely.</p>
+            </li>
+            <li>
+                <p>There is a rating system for students to rate one another for when 
+                things go well or  students can know about it before they have 
+                someone in their car or get in someone else's.</p>
+            </li>
+            <li>
+                <p>Students are able to post on a public forum about plans to drive 
+                or a request to be driven.</p>
+            </li>
+            <li>
+                <p>The application is accessible through or located on the NAUGO app/website.</p>
+            </li>
+            <li>
+                <p>Users can interact with public posts to accept offers or offer rides to those asking.</p>
+            </li>
+        </ul>
+        <h1>Development Process</h1>
+        <ul>
+            <li>
+                <p>Define all requirements and talk with client about the requirements they have.</p>
+            </li>
+            <li>
+                <p>Design a basic UI to allow for implementation of main features.</p>
+            </li>
+            <li>
+                <p>Use NAU's database of Student ID's to see who is allowed to login.</p>
+            </li>
+            <li>
+                <p>Create the main feature of students being able to communicate in public forums, 
+                and private DMs.</p>
+            </li>
+            <li>
+                <p>Newest posts on top, old ones go towards the bottom.</p>
+            </li>
+            <li>
+                <p>Update UI to be more visually appealing and on-brand for the school.</p>
+            </li>
+            <li>
+                <p>Connect our application to the NAUGO app or simply make it accessible through the app </p>
+            </li>
+        </ul>
+        <h1>The Impact</h1>
+        <p>
+            If we can have more 
+            students carpool, that will in turn 
+            reduce carbon emissions through the trips saved.
+        </p>
+    </div>
 </body>
 
 </html>
