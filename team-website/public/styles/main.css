@@ -68,6 +68,10 @@ body {
     justify-content: space-between;
 }
 
+.list {
+    max-width: 45%;
+}
+
 .list li {
     display: flex;
     flex-wrap: wrap;
@@ -76,9 +80,10 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    text-align: center;
 }
 
-.list li img {
+.headshot {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1),0 2px 10px 0 rgba(0,0,0,0.08);  
     width: 160px;
     height: 160px;
