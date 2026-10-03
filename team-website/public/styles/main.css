@@ -70,6 +70,7 @@ body {
 
 .list {
     max-width: 45%;
+    box-sizing: border-box; 
 }
 
 .list li {
@@ -83,12 +84,15 @@ body {
     text-align: center;
 }
 
-.headshot {
+.body-container img {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1),0 2px 10px 0 rgba(0,0,0,0.08);  
-    width: 160px;
-    height: 160px;
     padding: 5px;
     background-color: darkgray;
+}
+
+.headshot {
+    width: 160px;
+    height: 160px;
 }
 
 .downloads {
