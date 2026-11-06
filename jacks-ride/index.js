@@ -25,15 +25,116 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // get home page
 app.get("/", async (req, res) => {
 
+    const __pagename = "JacksRide Feed";
+    const __path = "/home";
+
     try {
         res.render("home.ejs", {
-            __dirname
+            __dirname,
+            __pagename,
+            __path
         });
     }
     catch (error) 
     {
         console.error("Error loading posts:", error.stack);
         res.status(500).send("Error loading posts");
+    }
+});
+
+// get home page
+app.get("/home", async (req, res) => {
+
+    const __pagename = "JacksRide Feed";
+    const __path = req.route.path;
+
+    try {
+        res.render("home.ejs", {
+            __dirname,
+            __pagename,
+            __path
+        });
+    }
+    catch (error) 
+    {
+        console.error("Error loading posts:", error.stack);
+        res.status(500).send("Error loading posts");
+    }
+});
+
+// get search page
+app.get("/search", async (req, res) => {
+
+    const __path = req.route.path;
+
+    try {
+        res.render("home.ejs", {
+            __dirname,
+            __path
+        });
+    }
+    catch (error) 
+    {
+        console.error("Error loading search:", error.stack);
+        res.status(500).send("Error loading search");
+    }
+});
+
+// get new post 
+app.get("/add-post", async (req, res) => {
+
+    const __pagename = "Post a";
+    const __path = req.route.path;
+
+    try {
+        res.render("home.ejs", {
+            __dirname,
+            __pagename,
+            __path
+        });
+    }
+    catch (error) 
+    {
+        console.error("Error loading new post:", error.stack);
+        res.status(500).send("Error loading now post");
+    }
+});
+
+// get notifications page
+app.get("/notifications", async (req, res) => {
+
+    const __pagename = "JacksRide Activity";
+    const __path = req.route.path;
+
+    try {
+        res.render("home.ejs", {
+            __dirname,
+            __pagename,
+            __path
+        });
+    }
+    catch (error) 
+    {
+        console.error("Error loading notifications:", error.stack);
+        res.status(500).send("Error loading notifications");
+    }
+});
+
+// get settings page
+app.get("/settings", async (req, res) => {
+
+    const __path = req.route.path;
+
+    try {
+        res.render("home.ejs", {
+            __dirname,
+            __path
+        });
+    }
+    catch (error) 
+    {
+        console.error("Error loading settings:", error.stack);
+        res.status(500).send("Error loading settings");
     }
 });
 
