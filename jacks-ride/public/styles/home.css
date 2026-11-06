@@ -13,7 +13,6 @@ body {
 
 .body-object {
     display: flex;
-    /*font-size: 30px;*/
     flex-direction: row;
     color: black;
     max-width: 50%;
