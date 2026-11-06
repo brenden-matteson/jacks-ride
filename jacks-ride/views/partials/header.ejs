@@ -9,10 +9,13 @@
     <title>JacksRide</title>
 </head>
 <header>
-    <div class="header-container">
-        <div class="header object">
-            <h1>Header</h1>
+    <% if (locals.__pagename) { %>
+        <div class="header-container">
+            <div class="header-object">
+                <div><%= __pagename %></div>
+                <div>______</div>
+            </div>
         </div>
-    </div>
+    <% } %>
 </header>
 <body>

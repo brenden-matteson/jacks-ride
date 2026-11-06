@@ -1,20 +1,29 @@
 <footer>
     <div class="nav-container">
         <div class="nav-object">
-            <img href="/images/icons/home.png">
+            <form id="home" action="/home" method="get">
+                <input type="image" src="<%= __path=="/home" ? "/images/icons/home-inverse.png" : "/images/icons/home.png" %>" alt="Home Icon">
+            </form>
         </div>
         <div class="nav-object">
-            Icon
-            <img href="/images/icons/search.png">
+            <form id="home" action="/search" method="get">
+                <input type="image" src="<%= __path=="/search" ? "/images/icons/search.png" : "/images/icons/search.png" %>" alt="Search Icon"> 
+            </form>
         </div>
         <div class="nav-object">
-            Icon
+            <form id="home" action="/add-post" method="get">
+                <input type="image" src="<%= __path=="/add-post" ? "/images/icons/square-plus-inverse.png" : "/images/icons/square-plus.png" %>" alt="Add Icon">
+            </form>  
         </div>
         <div class="nav-object">
-            Icon
+            <form id="home" action="/notifications" method="get">
+                <input type="image" src="<%= __path=="/notifications" ? "/images/icons/chat-notification-inverse.png" : "/images/icons/chat-notification.png" %>" alt="Notification Icon">
+            </form>
         </div>
         <div class="nav-object">
-            Icon
+            <form id="home" action="/settings" method="get">
+                <input type="image" src="<%= __path=="/settings" ? "/images/icons/user-inverse.png" : "/images/icons/user.png" %>" alt="Settings Icon">
+            </form>
         </div>
     </div>
 </footer>
