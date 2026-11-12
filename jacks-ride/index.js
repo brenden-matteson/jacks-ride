@@ -22,6 +22,13 @@ const db = new pg.Client({
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// global variables
+// declare global current user
+let user = [];
+
+// logged in boolean (REPLACE WITH NAU CAS VARIFICATION)
+let loggedIn = false;
+
 // get home page
 app.get("/", async (req, res) => {
 
@@ -32,7 +39,9 @@ app.get("/", async (req, res) => {
         res.render("home.ejs", {
             __dirname,
             __pagename,
-            __path
+            __path,
+            user,
+            loggedIn
         });
     }
     catch (error) 
@@ -68,7 +77,7 @@ app.get("/search", async (req, res) => {
     const __path = req.route.path;
 
     try {
-        res.render("home.ejs", {
+        res.render("search.ejs", {
             __dirname,
             __path
         });
@@ -87,7 +96,7 @@ app.get("/add-post", async (req, res) => {
     const __path = req.route.path;
 
     try {
-        res.render("home.ejs", {
+        res.render("add-post.ejs", {
             __dirname,
             __pagename,
             __path
@@ -101,13 +110,14 @@ app.get("/add-post", async (req, res) => {
 });
 
 // get notifications page
-app.get("/notifications", async (req, res) => {
+app.get("/:id/notifications", async (req, res) => {
 
     const __pagename = "JacksRide Activity";
     const __path = req.route.path;
+    const account_id = req.params.id;
 
     try {
-        res.render("home.ejs", {
+        res.render("notifications.ejs", {
             __dirname,
             __pagename,
             __path
@@ -121,12 +131,13 @@ app.get("/notifications", async (req, res) => {
 });
 
 // get settings page
-app.get("/settings", async (req, res) => {
+app.get("/:id/settings", async (req, res) => {
 
     const __path = req.route.path;
+    const account_id = req.params.id;
 
     try {
-        res.render("home.ejs", {
+        res.render("settings.ejs", {
             __dirname,
             __path
         });

@@ -6,4 +6,15 @@
     </div>
 </div>
 
+<% if (locals.rides) { %>
+    <div class="ride-container">
+        <% rides.forEach(ride => { %>
+            <div class="ride-container">
+                <a href="<%= __dirname %><%= ride.ride_id %>/ride"></a>
+                
+            </div>
+        <% }); %>
+    </div>
+<% } %>
+
 <%- include("partials/navigation.ejs") %>
