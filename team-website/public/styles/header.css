@@ -1,0 +1,41 @@
+header {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1),0 2px 10px 0 rgba(0,0,0,0.08);  
+}
+
+.header-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    color: black;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgrey;
+    margin: 0;
+    padding: 0;
+}
+
+:nth-child(2 of .header-container)
+{
+    justify-content: space-between;
+}
+
+:nth-child(2 of .header-container) :hover {
+    background-color: darkgray;
+    transition-duration: 0.5s;
+}
+
+.header-object {
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box; 
+}
+
+:nth-child(2 of .header-container) .header-object {
+    width: 16.6%;
+    font-size: larger;
+} 
+
+.header-container a {
+    text-decoration: none;
+    color: black;
+}
