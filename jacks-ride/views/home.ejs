@@ -1,11 +1,14 @@
 <%- include("partials/header.ejs") %>
 
-<% if (locals.rides) { %>
+<% if (locals.filtered_rides) { %>
     <div class="ride-container">
-        <% rides.forEach(ride => { %>
-            <div class="ride-container">
+        <% filtered_rides.forEach(ride => { %>
+            <div class="ride-object">
                 <a href="<%= __dirname %><%= ride.ride_id %>/ride">
-                    
+                    <h3><%= ride.creator_name %></h3>
+                    <div><%= ride.date_created %> - <%= ride.ride_type %></div>
+                    <h3><%= ride.title %></h3>
+                    <p><%= ride.body %></p>
                 </a>
             </div>
         <% }); %>

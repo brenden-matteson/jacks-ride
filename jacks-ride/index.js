@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import pg from "pg";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import rides from "./rides.js";
 
 // dirname, app, port
 const app = express();
@@ -71,6 +72,37 @@ app.get("/home", async (req, res) => {
         filter_tab = "all";
     }
 
+    let filtered_rides = rides;
+
+    if(filter_tab == "requests") {
+        filtered_rides.filter(ride => ride.ride_type == "Request");
+    }
+    if(filter_tab == "offers") {
+        filtered_rides.filter(ride => ride.ride_type == "Offer");
+    }
+
+    try {
+        res.render("home.ejs", {
+            __dirname,
+            __pagename,
+            __path,
+            filter_tab,
+            filtered_rides
+        });
+    }
+    catch (error) 
+    {
+        console.error("Error loading posts:", error.stack);
+        res.status(500).send("Error loading posts");
+    }
+});
+
+app.get("/:id/ride", async (req, res) => {
+
+    const __pagename = "JacksRide Feed";
+    const __path = req.route.path;
+    const ride_id = req.params.id;
+
     try {
         res.render("home.ejs", {
             __dirname,
@@ -81,8 +113,8 @@ app.get("/home", async (req, res) => {
     }
     catch (error) 
     {
-        console.error("Error loading posts:", error.stack);
-        res.status(500).send("Error loading posts");
+        console.error("Error loading post:", error.stack);
+        res.status(500).send("Error loading post");
     }
 });
 
