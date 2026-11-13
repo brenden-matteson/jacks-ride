@@ -169,7 +169,7 @@ app.post("/add-post", async (req, res) => {
     const creatorUserId = user[0].creator_id;
     const creatorName   = user[0].name;
 
-    const {
+    /* const {
         title,
         content,
         ingredients,
@@ -180,6 +180,9 @@ app.post("/add-post", async (req, res) => {
         difficulty,
         img
     } = req.body;
+     */
+
+    console.log(req.body);
 });
 
 // get notifications page
