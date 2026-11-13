@@ -75,10 +75,12 @@ app.get("/home", async (req, res) => {
     let filtered_rides = rides;
 
     if(filter_tab == "requests") {
-        filtered_rides.filter(ride => ride.ride_type == "Request");
+        filtered_rides = rides.filter(ride => ride.ride_type == "Request");
+        console.log(filtered_rides);
     }
     if(filter_tab == "offers") {
-        filtered_rides.filter(ride => ride.ride_type == "Offer");
+        filtered_rides = rides.filter(ride => ride.ride_type == "Offer");
+        console.log(filtered_rides);
     }
 
     try {
