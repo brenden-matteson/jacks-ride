@@ -3,6 +3,12 @@ a {
     color: black;
 }
 
+body {
+    font-family: Helvetica;
+    margin: 0;
+    width: 100%;
+}
+
 header {
     position: sticky;
     top: 0;
