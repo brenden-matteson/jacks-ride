@@ -67,7 +67,7 @@ app.get("/home", async (req, res) => {
     const __path = req.route.path;
     let filter_tab = req._parsedOriginalUrl.query;
 
-    if (filter_tab==null) {
+    if (filter_tab != "all" && filter_tab != "requests" && filter_tab != "offers") {
         filter_tab = "all";
     }
 
