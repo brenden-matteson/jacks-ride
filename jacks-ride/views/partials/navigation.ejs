@@ -17,12 +17,12 @@
         </div>
         <div class="nav-object">
             <form id="home" action="<%= __dirname %>1/notifications" method="get">
-                <input type="image" src="<%= __path=="/notifications" ? "/images/icons/chat-notification-inverse.png" : "/images/icons/chat-notification.png" %>" alt="Notification Icon">
+                <input type="image" src="<%= __path=="/:id/notifications" ? "/images/icons/chat-notification-inverse.png" : "/images/icons/chat-notification.png" %>" alt="Notification Icon">
             </form>
         </div>
         <div class="nav-object">
             <form id="home" action="<%= __dirname %>1/settings" method="get">
-                <input type="image" src="<%= __path=="/settings" ? "/images/icons/user-inverse.png" : "/images/icons/user.png" %>" alt="Settings Icon">
+                <input type="image" src="<%= __path=="/:id/settings" ? "/images/icons/user-inverse.png" : "/images/icons/user.png" %>" alt="Settings Icon">
             </form>
         </div>
     </div>

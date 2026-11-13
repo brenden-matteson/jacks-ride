@@ -13,9 +13,21 @@
         <div class="header-container">
             <div class="header-object">
                 <div><%= __pagename %></div>
-                <div>______</div>
             </div>
         </div>
+        <% if (locals.__path=="/home") { %>
+            <div class="header-container">
+                <div class="header-object" style="border-bottom: <%= filter_tab=="all" ? "3px solid navy" : "none" %>">
+                    <a href="<%= __dirname %>home?all"><div>All Rides</div></a>
+                </div>
+                <div class="header-object" style="border-bottom: <%= filter_tab=="requests" ? "3px solid navy" : "none" %>">
+                    <a href="<%= __dirname %>home?requests"><div>Ride Requests</div></a>
+                </div>
+                <div class="header-object" style="border-bottom: <%= filter_tab=="offers" ? "3px solid navy" : "none" %>">
+                    <a href="<%= __dirname %>home?offers"><div>Ride Offers</div></a>
+                </div>
+            </div>
+        <% } %>
     <% } %>
 </header>
 <body>

@@ -1,13 +1,17 @@
 import express from "express";
 import bodyParser from "body-parser";
-import bcrypt from "bcrypt";
 import pg from "pg";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
 // dirname, app, port
 const app = express();
 const port = 3000;
 // temporary directory name
 const __dirname = "http://localhost:3000/";
+/* dirname for non-local hosting
+const __dirname = dirname(fileURLToPath(import.meta.url));
+*/
 
 // db connect
 const db = new pg.Client({
@@ -18,16 +22,22 @@ const db = new pg.Client({
     port: 5432,
 });
 
+/* database connection point
+db.connect()
+    .then(() => console.log("Connected to Postgres"))
+    .catch((err) => console.error("DB connection error:", err.stack));
+*/
+
 // middleware
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // global variables
-// declare global current user
+// current user
 let user = [];
 
 // logged in boolean (REPLACE WITH NAU CAS VARIFICATION)
-let loggedIn = false;
+let loggedIn = true;
 
 // get home page
 app.get("/", async (req, res) => {
@@ -36,13 +46,12 @@ app.get("/", async (req, res) => {
     const __path = "/home";
 
     try {
-        res.render("home.ejs", {
-            __dirname,
-            __pagename,
-            __path,
-            user,
-            loggedIn
-        });
+        // verification check
+        if (!loggedIn) {
+            return res.redirect("/auth");
+        }
+
+        res.redirect("/home")
     }
     catch (error) 
     {
@@ -56,12 +65,18 @@ app.get("/home", async (req, res) => {
 
     const __pagename = "JacksRide Feed";
     const __path = req.route.path;
+    let filter_tab = req._parsedOriginalUrl.query;
+
+    if (filter_tab==null) {
+        filter_tab = "all";
+    }
 
     try {
         res.render("home.ejs", {
             __dirname,
             __pagename,
-            __path
+            __path,
+            filter_tab
         });
     }
     catch (error) 

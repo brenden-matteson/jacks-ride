@@ -1,6 +1,7 @@
 body {
     font-family: Helvetica;
     margin: 0;
+    width: 100%;
 }
 
 .body-container {
@@ -13,7 +14,7 @@ body {
 
 .body-object {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     color: black;
     max-width: 50%;
     gap: 50px;
