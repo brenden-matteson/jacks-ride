@@ -34,7 +34,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // global variables
-// current user
+// current user (DUMMY)
 let user = [
     {
         creator_id: 1,
