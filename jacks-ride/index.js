@@ -35,7 +35,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // global variables
 // current user
-let user = [];
+let user = [
+    {
+        creator_id: 1,
+        user_id: "bmm598",
+        name: "Brenden Matteson",
+    }
+];
 
 // logged in boolean (REPLACE WITH NAU CAS VARIFICATION)
 let loggedIn = true;
@@ -76,11 +82,9 @@ app.get("/home", async (req, res) => {
 
     if(filter_tab == "requests") {
         filtered_rides = rides.filter(ride => ride.ride_type == "Request");
-        console.log(filtered_rides);
     }
     if(filter_tab == "offers") {
         filtered_rides = rides.filter(ride => ride.ride_type == "Offer");
-        console.log(filtered_rides);
     }
 
     try {
