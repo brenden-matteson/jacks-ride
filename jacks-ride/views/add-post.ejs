@@ -1,9 +1,83 @@
 <%- include("partials/header.ejs", { pageStylesheet: 'add-post' }) %>
 
-<div class="body-containter">
-    <div class="body-object">
-        <h1>Add-Post</h1>
+<form id="post_offer_form">
+    <div class="body-containter">
+        <div class="body-object">
+            <h3>Required Information</h3>
+        </div>
     </div>
-</div>
+    <div class="form-group">
+        <input type="text" id="vehicle_model" required 
+        placeholder="Enter Vehicle Model">
+    </div>
+    <div class="form-group">
+        <input type="text" id="destination_location" required 
+        placeholder="Enter Destination Location (City, State)">
+    </div>
+    <div class="form-group">
+        <input type="text" id="depature_date" required 
+        placeholder="Enter Depature Date" onfocus="this.type='date'"
+        onblur="if(!this.value) this.type='text'">
+    </div>
+    <div class="form-group">
+        <input type="text" id="depature_time" required 
+        placeholder="Enter Depature Time" onfocus="this.type='time'"
+        onblur="if(!this.value) this.type='text'">
+    </div>
+    <div class="form-group">
+        <input type="text" id="post_title" required 
+        placeholder="Enter Post Title">
+    </div>
+    <div class="form-group">
+        <textarea id="trip_details" required 
+        placeholder="Tell others details about your trip." rows="4"></textarea>
+    </div>
+    <div class="body-containter">
+        <div class="body-object">
+            <h3>Additional Information</h3>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="number" id="amount_requested" required 
+        placeholder="Enter Requested Amount ($)">
+    </div>
+    <div class="form-group">
+        <!--
+        <input type="text" id="perfered_payment" required 
+        placeholder="Enter Perferred Payment Method">
+        -->
+        <h4>Enter Perferred Payment Method</h4>
+        <input type="checkbox" id="payment1" name="payment1" value="Zelle">
+        <label for="payment1">Zelle</label><br>
+        <input type="checkbox" id="payment2" name="payment2" value="Venmo">
+        <label for="payment2">Venmo</label><br>
+        <input type="checkbox" id="payment3" name="payment3" value="Paypal">
+        <label for="payment3">Paypal</label><br>
+        <input type="checkbox" id="payment4" name="payment4" value="CashApp">
+        <label for="payment4">CashApp</label><br>
+        <input type="checkbox" id="payment5" name="payment5" value="Cash_In_Person">
+        <label for="payment5">Cash In Person</label><br>
+        <input type="checkbox" id="payment6" name="payment6" value="Other">
+        <label for="payment6">Other</label><br>
+    </div>
+    <div class="form-group">
+        <input type="number" id="seats_available" required 
+        placeholder="How many open seats are available?">
+    </div>
+    <div class="form-group">
+        <input type="text" id="trip_type" required 
+        placeholder="One Way or Round Trip?">
+    </div>
+    <div class="form-group">
+        <input type="text" id="pets_allowed" required 
+        placeholder="Are Pets Allowed?">
+    </div>
+    <button type="submit">Create Post</button>
+</form>
+
 
 <%- include("partials/navigation.ejs") %>
+
+<script>
+
+</script>
