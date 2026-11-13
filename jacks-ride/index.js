@@ -165,6 +165,23 @@ app.get("/add-post", async (req, res) => {
     }
 });
 
+app.post("/add-post", async (req, res) => {
+    const creatorUserId = user[0].creator_id;
+    const creatorName   = user[0].name;
+
+    const {
+        title,
+        content,
+        ingredients,
+        instructions,
+        tags,
+        diet,
+        cook_time,
+        difficulty,
+        img
+    } = req.body;
+});
+
 // get notifications page
 app.get("/:id/notifications", async (req, res) => {
 
