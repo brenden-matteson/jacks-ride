@@ -89,11 +89,13 @@ app.get("/home", async (req, res) => {
 // get search page
 app.get("/search", async (req, res) => {
 
+    const __pagename = "Search";
     const __path = req.route.path;
 
     try {
         res.render("search.ejs", {
             __dirname,
+            __pagename,
             __path
         });
     }
