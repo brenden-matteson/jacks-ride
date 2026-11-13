@@ -9,7 +9,14 @@
                     <div><%= ride.date_created %> - <%= ride.ride_type %></div>
                     <h3><%= ride.title %></h3>
                     <p><%= ride.body %></p>
-                    <tag>Hello</tag>
+                    <div class="tag-container">
+                        <span class="ride-tag"><%= ride.ride_date %></span>
+                        <span class="ride-tag">$<%= ride.payment_amount %></span>
+                        <span class="ride-tag"><%= ride.one_way_two_way %></span>
+                        <span class="ride-tag"><%= ride.destination %></span>
+                        <span class="ride-tag"><%= ride.pets %></span>
+                        <span class="ride-tag">Seats: <%= ride.seats_available %></span>
+                    </div>
                 </a>
             </div>
         <% }); %>

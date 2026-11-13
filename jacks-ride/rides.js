@@ -14,6 +14,7 @@ const rides = [
         payment_type: "Venmo, Zelle",
         departure_time: "08:00 AM",
         destination: "Surprise, AZ",
+        seats_available: 4,
     },
     {
         date_created: "11-13-2025",
@@ -30,6 +31,7 @@ const rides = [
         payment_type: "Venmo, CashApp",
         departure_time: "03:00 PM",
         destination: "Surprise, AZ",
+        seats_available: 2,
     },
     {
         date_created: "11-13-2025",
@@ -46,6 +48,7 @@ const rides = [
         payment_type: "Zelle",
         departure_time: "10:00 AM",
         destination: "Surprise, AZ",
+        seats_available: 3,
     },
     {
         date_created: "11-13-2025",
@@ -62,6 +65,7 @@ const rides = [
         payment_type: "Venmo, CashApp",
         departure_time: "03:00 PM",
         destination: "Surprise, AZ",
+        seats_available: 4,
     },
     {
         date_created: "11-13-2025",
@@ -78,6 +82,7 @@ const rides = [
         payment_type: "Zelle",
         departure_time: "10:00 AM",
         destination: "Surprise, AZ",
+        seats_available: 2,
     },
     {
         date_created: "11-13-2025",
@@ -94,6 +99,7 @@ const rides = [
         payment_type: "Venmo, Zelle",
         departure_time: "08:00 AM",
         destination: "Surprise, AZ",
+        seats_available: 1,
     },
 ]
 

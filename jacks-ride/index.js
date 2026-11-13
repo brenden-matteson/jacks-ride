@@ -114,7 +114,6 @@ app.get("/:id/ride", async (req, res) => {
             __dirname,
             __pagename,
             __path,
-            filter_tab
         });
     }
     catch (error) 
