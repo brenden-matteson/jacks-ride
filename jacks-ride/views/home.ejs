@@ -11,11 +11,15 @@
                     <p><%= ride.body %></p>
                     <div class="tag-container">
                         <span class="ride-tag"><%= ride.ride_date %></span>
-                        <span class="ride-tag">$<%= ride.payment_amount %></span>
+                        <% if (ride.payment_amount) { %>
+                        <span class="ride-tag">$<%= ride.payment_amount %> Requested</span>
+                        <% } %>
                         <span class="ride-tag"><%= ride.one_way_two_way %></span>
                         <span class="ride-tag"><%= ride.destination %></span>
                         <span class="ride-tag"><%= ride.pets %></span>
+                        <% if (ride.seats_available) { %>
                         <span class="ride-tag">Seats: <%= ride.seats_available %></span>
+                        <% } %>
                     </div>
                 </a>
             </div>
