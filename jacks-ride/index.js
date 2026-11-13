@@ -87,6 +87,8 @@ app.get("/home", async (req, res) => {
         filtered_rides = rides.filter(ride => ride.ride_type == "Offer");
     }
 
+    filtered_rides = filtered_rides.sort((a, b) => new Date(b.date_created) - new Date(a.date_created));
+
     try {
         res.render("home.ejs", {
             __dirname,
