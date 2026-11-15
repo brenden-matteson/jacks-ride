@@ -3,6 +3,8 @@ import bodyParser from "body-parser";
 import pg from "pg";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import { toTitleCase } from "./helper.js";
+// UNCOMMENT THIS IF NOT USING DATABASE
 // import rides from "./rides.js";
 
 // dirname, app, port
@@ -23,6 +25,7 @@ const db = new pg.Client({
     port: 5432,
 });
 
+//COMMENT THIS OUT IF NOT USING DATABASE
 // database connection point
 db.connect()
     .then(() => console.log("Connected to Postgres"))
@@ -258,14 +261,14 @@ app.post("/add-post", async (req, res) => {
             [
                 post_title,
                 trip_details,
-                ride_type.toTitleCase(),
+                toTitleCase(ride_type),
                 depature_date,
                 trip_type,
                 pets_allowed,
                 amount_requested,
                 payments.toLocaleString(),
                 depature_time,
-                seats_available,
+                seats_available || null,
                 destination_location,
                 vehicle_details[0] || null,
                 vehicle_details[1] || null,

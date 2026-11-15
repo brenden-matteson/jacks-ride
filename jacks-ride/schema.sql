@@ -23,10 +23,10 @@ CREATE TABLE IF NOT EXISTS rides (
     departure_time  TIME        NOT NULL,
     seats_available INTEGER,
     destination     TEXT        NOT NULL,
-    vehicle_make    TEXT        NOT NULL,
-    vehicle_model   TEXT        NOT NULL,
-    vehicle_year    INTEGER     NOT NULL,
-    vehicle_color   TEXT        NOT NULL,
+    vehicle_make    TEXT,
+    vehicle_model   TEXT,
+    vehicle_year    INTEGER,
+    vehicle_color   TEXT,
     creator_id      INTEGER     NOT NULL
         REFERENCES users(creator_id)
         ON DELETE CASCADE,
