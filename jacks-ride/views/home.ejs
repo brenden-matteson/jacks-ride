@@ -5,7 +5,7 @@
         <% filtered_rides.forEach(ride => { %>
             <div class="ride-object">
                 <a href="<%= __dirname %><%= ride.ride_id %>/ride">
-                    <h3><%= ride.creator_name %></h3>
+                    <h3><%= ride.creator_name %> (<%= ride.creator_username %>)</h3>
                     <div><%= ride.date_created %> - <%= ride.ride_type %></div>
                     <h3><%= ride.title %></h3>
                     <p><%= ride.body %></p>

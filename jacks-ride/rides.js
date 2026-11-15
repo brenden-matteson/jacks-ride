@@ -1,11 +1,9 @@
 const rides = [
     {
-        date_created: "11-11-2025",
+        ride_id: 1,
         title: "title",
         creator_name: "example name",
-        creator_user_id: 1,
         body: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
-        ride_id: 1,
         ride_type: "Offer",
         ride_date: "11-14-2025",
         one_way_two_way: "One-Way",
@@ -15,6 +13,8 @@ const rides = [
         departure_time: "08:00 AM",
         destination: "Surprise, AZ",
         seats_available: 4,
+        creator_user_id: 1,
+        date_created: "11-11-2025",
     },
     {
         date_created: "11-13-2025",

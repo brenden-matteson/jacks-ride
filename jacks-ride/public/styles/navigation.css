@@ -33,3 +33,9 @@ footer {
 .nav-object input {
     width: 40px;
 }
+
+.nav-object button {
+    border: none; 
+    background: transparent; 
+    padding: 0;
+}
