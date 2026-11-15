@@ -1,13 +1,17 @@
 -- users
 CREATE TABLE IF NOT EXISTS users (
-    creator_id SERIAL PRIMARY KEY,
-    user_id    VARCHAR(50) NOT NULL UNIQUE,
-    name       VARCHAR(100) NOT NULL
+    creator_id      SERIAL PRIMARY KEY,
+    user_id         VARCHAR(50) NOT NULL UNIQUE,
+    name            VARCHAR(100) NOT NULL,
+    vehicle_make    TEXT,
+    vehicle_model   TEXT,
+    vehicle_year    INTEGER,
+    vehicle_color   TEXT
 );
 
 -- rides
 CREATE TABLE IF NOT EXISTS rides (
-    ride_id       SERIAL PRIMARY KEY,
+    ride_id         SERIAL PRIMARY KEY,
     title           TEXT        NOT NULL,
     body            TEXT        NOT NULL,
     ride_type       TEXT        NOT NULL,
@@ -19,6 +23,10 @@ CREATE TABLE IF NOT EXISTS rides (
     departure_time  TIME        NOT NULL,
     seats_available INTEGER,
     destination     TEXT        NOT NULL,
+    vehicle_make    TEXT        NOT NULL,
+    vehicle_model   TEXT        NOT NULL,
+    vehicle_year    INTEGER     NOT NULL,
+    vehicle_color   TEXT        NOT NULL,
     creator_id      INTEGER     NOT NULL
         REFERENCES users(creator_id)
         ON DELETE CASCADE,

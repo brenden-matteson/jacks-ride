@@ -19,7 +19,7 @@
         </div>
         <% if (locals.__path=="/home") { %>
             <div class="header-container">
-                <div class="header-object" style="border-bottom: <%= filter_tab=="all" ? "3px solid navy" : "none" %>;">
+                <div class="header-object" style="border-bottom: <%= filter_tab=="all" || filter_tab=="" ? "3px solid navy" : "none" %>;">
                     <a href="<%= __dirname %>home?all"><div>All Rides</div></a>
                 </div>
                 <div class="header-object" style="border-bottom: <%= filter_tab=="request" ? "3px solid navy" : "none" %>;">

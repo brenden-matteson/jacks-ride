@@ -12,8 +12,11 @@
                     <div class="tag-container">
                         <span class="ride-tag"><%= ride.ride_date %></span>
                         <span class="ride-tag"><%= ride.departure_time %></span>
-                        <% if (ride.payment_amount) { %>
+                        <% if (ride.ride_type == "Offer") { %>
                         <span class="ride-tag">$<%= ride.payment_amount %> Requested</span>
+                        <% } %>
+                        <% if (ride.ride_type == "Request") { %>
+                        <span class="ride-tag">Willing to pay $<%= ride.payment_amount %></span>
                         <% } %>
                         <span class="ride-tag"><%= ride.one_way_two_way %></span>
                         <span class="ride-tag"><%= ride.destination %></span>

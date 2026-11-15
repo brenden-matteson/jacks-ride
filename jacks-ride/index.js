@@ -30,6 +30,7 @@ db.connect()
 
 // middleware
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
 // global variables
 // current user (DUMMY)
@@ -38,6 +39,10 @@ let user = [
         creator_id: 1,
         user_id: "bmm598",
         name: "Brenden Matteson",
+        vehicle_make: "Toyota",
+        vehicle_model: "Camry",
+        vehicle_year: 2016,
+        vehicle_color: "White",
     }
 ];
 
@@ -61,12 +66,12 @@ async function getRides(filter) {
             TO_CHAR(r.departure_time, 'HH12:MI AM') AS departure_time,
             r.seats_available,
             r.destination,
-            r.creator_user_id,
+            r.creator_id,
             TO_CHAR(r.date_created, 'MM-DD-YYYY') AS date_created,
             u.name AS creator_name,
             u.user_id AS creator_username
         FROM rides r
-        LEFT JOIN users u ON r.creator_user_id = u.creator_id
+        LEFT JOIN users u ON r.creator_id = u.creator_id
     `;
 
     // helper filters for filtering query results
@@ -77,7 +82,6 @@ async function getRides(filter) {
     if (filter && filter.trim() !== "" && filter.trim() !== "all") {
         params.push(`%${filter.toLowerCase()}%`);
         const idx = params.length;
-        console.log(idx);
         conditions.push(
             `(LOWER(r.ride_type) LIKE $${idx})`
         );
@@ -98,14 +102,8 @@ async function getRides(filter) {
     return result.rows;
 }
 
-let rides = await getRides("");
-
 // get home page
 app.get("/", async (req, res) => {
-
-    const __pagename = "JacksRide Feed";
-    const __path = "/home";
-
     try {
         // verification check
         if (!loggedIn) {
@@ -192,14 +190,15 @@ app.get("/search", async (req, res) => {
 // get new post 
 app.get("/add-post", async (req, res) => {
 
-    const __pagename = "Post a";
+    const __pagename = "Post a Ride or Request";
     const __path = req.route.path;
 
     try {
         res.render("add-post.ejs", {
             __dirname,
             __pagename,
-            __path
+            __path,
+            user: user[0]
         });
     }
     catch (error) 
@@ -210,23 +209,77 @@ app.get("/add-post", async (req, res) => {
 });
 
 app.post("/add-post", async (req, res) => {
-    const creatorUserId = user[0].creator_id;
-    const creatorName   = user[0].name;
+    const creatorId = user[0].creator_id;
 
-    /* const {
-        title,
-        content,
-        ingredients,
-        instructions,
-        tags,
-        diet,
-        cook_time,
-        difficulty,
-        img
+    const {
+        ride_type,
+        vehicle,
+        destination_location,
+        depature_date,
+        depature_time,
+        post_title,
+        trip_details,
+        amount_requested,
+        payment1,
+        payment2,
+        payment3,
+        payment4,
+        payment5,
+        payment6,
+        seats_available,
+        trip_type,
+        pets_allowed,
     } = req.body;
-     */
 
-    console.log(req.body);
+    const payment_types = [payment1, payment2, payment3, payment4, payment5, payment6];
+    const payments = payment_types.filter(payment => payment != undefined);
+    let vehicle_details = [];
+    if (vehicle)
+    {
+        vehicle_details = vehicle.split(",");
+    }
+
+    try {
+        await db.query(
+            `
+            INSERT INTO rides
+                (title, body, ride_type, ride_date, one_way_two_way,
+                    pets, payment_amount, payment_type, departure_time,
+                    seats_available, destination, vehicle_color,
+                    vehicle_year, vehicle_make, vehicle_model,
+                    creator_id)
+            VALUES
+                ($1,   $2,   $3,  $4,          $5,
+                    $6,  $7,   $8,    $9,
+                    $10, $11, $12,
+                    $13, $14, $15,
+                    $16)
+            `,
+            [
+                post_title,
+                trip_details,
+                ride_type.toTitleCase(),
+                depature_date,
+                trip_type,
+                pets_allowed,
+                amount_requested,
+                payments.toLocaleString(),
+                depature_time,
+                seats_available,
+                destination_location,
+                vehicle_details[0] || null,
+                vehicle_details[1] || null,
+                vehicle_details[2] || null,
+                vehicle_details[3] || null,
+                creatorId
+            ]
+        );
+
+        res.redirect("/");
+    } catch (error) {
+        console.error("Error inserting post:", error.stack);
+        res.status(500).send("Error creating post");
+    }
 });
 
 // get notifications page

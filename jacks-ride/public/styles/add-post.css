@@ -1,0 +1,68 @@
+h3, h4 {
+    color: darkslategray;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 100px;   
+    margin-left: 5%;
+    margin-right: 5%;
+    transition: 0.5s;
+}
+
+.form-group button[type="submit"] {
+    background-color: gold;
+    border: 3px solid navy;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.form-group input, button, textarea {
+    padding: 5px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    margin-top: 10px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-group input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.form-group input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.form-group label {
+    display: inline-block;
+    padding: 5px 20px;
+    background-color: white;
+    border: 1px solid #d4d4d8;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.form-group input[type="checkbox"]:checked + label {
+    background-color: gold;
+}
+
+.form-group input[type="radio"]:checked + label {
+    background-color: gold;
+}

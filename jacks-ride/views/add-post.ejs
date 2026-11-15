@@ -1,83 +1,90 @@
 <%- include("partials/header.ejs", { pageStylesheet: 'add-post' }) %>
 
-<form id="post_offer_form" action="/add-post" method="post">
-    <div class="body-containter">
-        <div class="body-object">
-            <h3>Required Information</h3>
-        </div>
-    </div>
-    <div class="form-group">
-        <input type="text" name="vehicle_model" required 
-        placeholder="Enter Vehicle Model">
-    </div>
-    <div class="form-group">
-        <input type="text" name="destination_location" required 
-        placeholder="Enter Destination Location (City, State)">
-    </div>
-    <div class="form-group">
-        <input type="text" name="depature_date" required 
-        placeholder="Enter Depature Date" onfocus="this.type='date'"
-        onblur="if(!this.value) this.type='text'">
-    </div>
-    <div class="form-group">
-        <input type="text" name="depature_time" required 
-        placeholder="Enter Depature Time" onfocus="this.type='time'"
-        onblur="if(!this.value) this.type='text'">
-    </div>
-    <div class="form-group">
-        <input type="text" name="post_title" required 
-        placeholder="Enter Post Title">
-    </div>
-    <div class="form-group">
-        <textarea name="trip_details" required 
-        placeholder="Tell others details about your trip." rows="4"></textarea>
-    </div>
-    <div class="body-containter">
-        <div class="body-object">
-            <h3>Additional Information</h3>
-        </div>
-    </div>
-    <div class="form-group">
-        <input type="number" name="amount_requested" required 
-        placeholder="Enter Requested Amount ($)">
-    </div>
-    <div class="form-group">
-        <!--
-        <input type="text" id="perfered_payment" required 
-        placeholder="Enter Perferred Payment Method">
-        -->
-        <h4>Enter Perferred Payment Method</h4>
-        <input type="checkbox" name="payment1" value="Zelle">
-        <label for="payment1">Zelle</label><br>
-        <input type="checkbox" name="payment2" value="Venmo">
-        <label for="payment2">Venmo</label><br>
-        <input type="checkbox" name="payment3" value="Paypal">
-        <label for="payment3">Paypal</label><br>
-        <input type="checkbox" name="payment4" value="CashApp">
-        <label for="payment4">CashApp</label><br>
-        <input type="checkbox" name="payment5" value="Cash_In_Person">
-        <label for="payment5">Cash In Person</label><br>
-        <input type="checkbox" name="payment6" value="Other">
-        <label for="payment6">Other</label><br>
-    </div>
-    <div class="form-group">
-        <input type="number" name="seats_available" required 
-        placeholder="How many open seats are available?">
-    </div>
-    <div class="form-group">
-        <input type="text" name="trip_type" required 
-        placeholder="One Way or Round Trip?">
-    </div>
-    <div class="form-group">
-        <input type="text" name="pets_allowed" required 
-        placeholder="Are Pets Allowed?">
-    </div>
-    <button type="submit">Create Post</button>
-</form>
+<script src="/js/form-listener.js" defer></script>
 
+<div class="form-container">
+    <form id="post_offer_form" action="/add-post" method="post">
+        <div class="form-group">
+            <h3>Select a type</h3>
+            <input type="radio" checked id="offer" name="ride_type" value="offer" required checked>
+            <label for="offer">Ride Offer (You are driving)</label><br>
+            <input type="radio" id="request" name="ride_type" value="request" required>
+            <label for="request">Ride Request (You are riding)</label>
+        </div>
+        <div class="form-group" id="select_vehicle">
+            <h3>Select a vehicle</h3>
+            <input type="checkbox" required id="vehicle" name="vehicle" value="<%= user.vehicle_color %>,<%= user.vehicle_year %>,<%= user.vehicle_make %>,<%= user.vehicle_model %>">
+            <label for="vehicle"><%= user.vehicle_color %> <%= user.vehicle_year %> <%= user.vehicle_make %> <%= user.vehicle_model %></label>
+        </div>
+        <h3>Required Ride info</h3>
+        <div class="form-group">
+            <input type="text" name="destination_location" required 
+            placeholder="Enter Destination Location (City, State)">
+        </div>
+        <div class="form-group">
+            <input type="text" name="depature_date" required 
+            placeholder="Enter Depature Date" onfocus="this.type='date'"
+            onblur="if(!this.value) this.type='text'">
+        </div>
+        <div class="form-group">
+            <input type="text" name="depature_time" required 
+            placeholder="Enter Depature Time" onfocus="this.type='time'"
+            onblur="if(!this.value) this.type='text'">
+        </div>
+        <div class="form-group">
+            <input type="text" name="post_title" required 
+            placeholder="Enter Post Title">
+        </div>
+        <div class="form-group">
+            <textarea name="trip_details" required 
+            placeholder="Tell others details about your trip." rows="4"></textarea>
+        </div>
+        <h3>Additional Ride info</h3>
+        <div class="form-group">
+            <input type="number" id="amount_requested" name="amount_requested" required 
+            placeholder="Enter requested amount ($)">
+        </div>
+        <div class="form-group">
+            <h4 id="payment_method">Choose requested payment method</h4>
+            <!--
+            <input type="text" id="perfered_payment" required 
+            placeholder="Enter Perferred Payment Method">
+            -->
+            <input type="checkbox" id="payment1" name="payment1" value="Zelle">
+            <label for="payment1">Zelle</label>
+            <input type="checkbox" id="payment2" name="payment2" value="Venmo">
+            <label for="payment2">Venmo</label>
+            <input type="checkbox" id="payment3" name="payment3" value="Paypal">
+            <label for="payment3">Paypal</label>
+            <input type="checkbox" id="payment4" name="payment4" value="CashApp">
+            <label for="payment4">CashApp</label>
+            <input type="checkbox" id="payment5" name="payment5" value="Cash_In_Person">
+            <label for="payment5">Cash In Person</label>
+            <input type="checkbox" id="payment6" name="payment6" value="Other">
+            <label for="payment6">Other</label>
+        </div>
+        <div class="form-group" id="seats_available_section">
+            <input type="number" id="seats_available" name="seats_available" required 
+            placeholder="How many open seats are available?">
+        </div>
+        <div class="form-group">
+            <input type="radio" id="one-way" name="trip_type" value="One Way" required checked>
+            <label for="one-way">One Way</label>
+            or
+            <input type="radio" id="two-way" name="trip_type" value="Two Way" required>
+            <label for="two-way">Round Trip</label>
+        </div>
+        <div class="form-group">
+            <input type="radio" id="no-pets" name="pets_allowed" value="No Pets" required checked>
+            <label for="no-pets">No Pets</label>
+            or
+            <input type="radio" id="pets-ok" name="pets_allowed" value="Pets OK" required>
+            <label for="pets-ok">Pets OK</label>
+        </div>
+        <div class="form-group">
+            <button type="submit">Create Post</button>
+        </div>
+    </form>
+</div>
 
 <%- include("partials/navigation.ejs") %>
-
-<script>
-
-</script>
