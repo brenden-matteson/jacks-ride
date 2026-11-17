@@ -1,8 +1,107 @@
 <%- include("partials/header.ejs", { pageStylesheet: 'notifications' }) %>
 
-<div class="body-containter">
-    <div class="body-object">
+<div class="notifications-page">
+    <div class="notifications-heading">
         <h1>Notifications</h1>
+        <p>Stay updated on your rides and requests.</p>
+    </div>
+
+    <div class="notification-feed">
+
+        <% if (notifications && notifications.length > 0) { %>
+
+            <% notifications.forEach(notification => { %>
+
+                <div class="notification-card">
+
+                    <div class="notification-icon
+                        <%= notification.status.toLowerCase() %>">
+
+                        <% if (notification.status === "Pending") { %>
+                            <span>!</span>
+                        <% } else if (notification.status === "Accepted") { %>
+                            <span>✓</span>
+                        <% } else { %>
+                            <span>×</span>
+                        <% } %>
+
+                    </div>
+
+                    <div class="notification-content">
+
+                        <div class="notification-top">
+                            <h3>
+                                <% if (notification.status === "Pending") { %>
+                                    New Ride Request
+                                <% } else if (notification.status === "Accepted") { %>
+                                    Ride Request Accepted
+                                <% } else { %>
+                                    Ride Request Declined
+                                <% } %>
+                            </h3>
+
+                            <span class="notification-status
+                                <%= notification.status.toLowerCase() %>">
+                                <%= notification.status %>
+                            </span>
+                        </div>
+
+                        <p>
+                            <strong><%= notification.user_name %></strong>
+
+                            <% if (notification.status === "Pending") { %>
+                                requested to join your ride.
+                            <% } else if (notification.status === "Accepted") { %>
+                                accepted your ride request.
+                            <% } else { %>
+                                declined your ride request.
+                            <% } %>
+                        </p>
+
+                        <div class="notification-ride">
+                            <strong><%= notification.ride_title %></strong>
+                            <span><%= notification.destination %></span>
+                            <span><%= notification.ride_date %></span>
+                        </div>
+
+                        <div class="notification-bottom">
+                            <small>
+                                <%= notification.request_date %>
+                            </small>
+
+                            <% if (notification.status === "Pending") { %>
+                                <div class="notification-actions">
+                                    <form action="/requests/<%= notification.request_id %>/accept"
+                                          method="POST">
+                                        <button type="submit" class="accept-button">
+                                            Accept
+                                        </button>
+                                    </form>
+
+                                    <form action="/requests/<%= notification.request_id %>/decline"
+                                          method="POST">
+                                        <button type="submit" class="decline-button">
+                                            Decline
+                                        </button>
+                                    </form>
+                                </div>
+                            <% } %>
+                        </div>
+
+                    </div>
+                </div>
+
+            <% }); %>
+
+        <% } else { %>
+
+            <div class="empty-notifications">
+                <h3>No Notifications Yet</h3>
+                <p>When someone interacts with your rides, updates will appear here.</p>
+            </div>
+
+        <% } %>
+
     </div>
 </div>
 
