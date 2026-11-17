@@ -1,8 +1,82 @@
 <%- include("partials/header.ejs", { pageStylesheet: 'settings' }) %>
 
-<div class="body-containter">
-    <div class="body-object">
-        <h1>Settings</h1>
+<div class="settings-container">
+    <div class="settings-section">
+        <h1>Vehicle Information</h1>
+        <p>Update the vehicle information associated with your account.</p>
+
+        <form action="/<%= user.creator_id %>/settings/update-vehicle" method="POST">
+            <div class="form-group">
+                <label for="vehicle_color">Vehicle Color</label>
+                <input
+                    type="text"
+                    id="vehicle_color"
+                    name="vehicle_color"
+                    value="<%= user.vehicle_color || '' %>"
+                    placeholder="Enter vehicle color"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="vehicle_year">Vehicle Year</label>
+                <input
+                    type="number"
+                    id="vehicle_year"
+                    name="vehicle_year"
+                    value="<%= user.vehicle_year || '' %>"
+                    placeholder="Enter vehicle year"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="vehicle_make">Vehicle Make</label>
+                <input
+                    type="text"
+                    id="vehicle_make"
+                    name="vehicle_make"
+                    value="<%= user.vehicle_make || '' %>"
+                    placeholder="Enter vehicle make"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="vehicle_model">Vehicle Model</label>
+                <input
+                    type="text"
+                    id="vehicle_model"
+                    name="vehicle_model"
+                    value="<%= user.vehicle_model || '' %>"
+                    placeholder="Enter vehicle model"
+                >
+            </div>
+
+            <button type="submit">Save Vehicle Information</button>
+        </form>
+    </div>
+
+    <div class="settings-section">
+        <h1>Past Rides</h1>
+        <p>View your previously completed rides.</p>
+
+        <% if (past_rides && past_rides.length > 0) { %>
+            <div class="past-rides-container">
+                <% past_rides.forEach(ride => { %>
+                    <div class="past-ride">
+                        <h3><%= ride.title %></h3>
+
+                        <div class="ride-details">
+                            <span><strong>Type:</strong> <%= ride.ride_type %></span>
+                            <span><strong>Destination:</strong> <%= ride.destination %></span>
+                            <span><strong>Date:</strong> <%= ride.ride_date %></span>
+                            <span><strong>Departure:</strong> <%= ride.departure_time %></span>
+                            <span><strong>Trip:</strong> <%= ride.one_way_two_way %></span>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <p class="no-rides">You don't have any past rides yet.</p>
+        <% } %>
     </div>
 </div>
 
