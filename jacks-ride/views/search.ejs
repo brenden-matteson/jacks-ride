@@ -32,16 +32,6 @@
                 <h3>Filter Rides</h3>
 
                 <div class="filter-group">
-                    <label for="date">Date</label>
-                    <input type="date" id="date" name="date">
-                </div>
-
-                <div class="filter-group">
-                    <label for="time">Time</label>
-                    <input type="time" id="time" name="time">
-                </div>
-
-                <div class="filter-group">
                     <label for="location">Location</label>
                     <input
                         type="text"
@@ -59,6 +49,18 @@
                         name="destination"
                         placeholder="Where are you going?"
                     >
+                </div>
+
+                <div class="adjacent-filter">
+                    <div class="filter-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="time">Time</label>
+                        <input type="time" id="time" name="time">
+                    </div>
                 </div>
 
                 <div class="filter-group">
@@ -82,6 +84,32 @@
                         step="0.01"
                         placeholder="Maximum cost"
                     >
+                </div>
+
+                <div class="filter-group">
+                    <fieldset class="payment-method">
+                        <legend>Payment Methods</legend>
+                            <div class="adjacent-filter payment-checkbox">
+                                <input type="checkbox" id="cash" name="cash" value="false">
+                                <label for="cash">Cash</label>
+                            </div>
+                            <div class="adjacent-filter">
+                                <input type="checkbox" id="zelle" name="zelle" value="false">
+                                <label for="zelle">Zelle</label>
+                            </div>
+                            <div class="adjacent-filter">
+                                <input type="checkbox" id="venmo" name="venmo" value="false">
+                                <label for="venmo">Venmo</label>
+                            </div>
+                            <div class="adjacent-filter">
+                                <input type="checkbox" id="cashapp" name="cashapp" value="false">
+                                <label for="cashapp">Cashapp</label>
+                            </div>
+                            <div class="adjacent-filter">
+                                <input type="checkbox" id="other" name="other" value="false">
+                                <label for="other">Other</label>
+                            </div>
+                    </fieldset>
                 </div>
 
                 <button type="submit" class="apply-filters">

@@ -126,13 +126,22 @@ body {
     margin-bottom: 15px;
 }
 
-.filter-group label {
+.filter-group label, .filter-group legend {
     font-size: 14px;
     font-weight: 600;
     color: #444;
 }
 
-.filter-group input {
+.adjacent-filter {
+    display: flex;
+    flex-direction: row;
+}
+
+.filter-group input:focus {
+    border-color: #555;
+}
+
+.filter-group input:not([type=checkbox]) {
     width: 100%;
     height: 40px;
     padding: 0 10px;
@@ -142,8 +151,25 @@ body {
     outline: none;
 }
 
-.filter-group input:focus {
-    border-color: #555;
+.filter-group input[type=checkbox] {
+    width: 20%;
+    height: 20px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+.payment-method label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    align-self: center;
+}
+
+.payment-checkbox {
+    margin-top: 5px;
 }
 
 /* Apply Filters Button */
