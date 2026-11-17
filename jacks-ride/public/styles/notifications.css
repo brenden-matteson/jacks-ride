@@ -1,0 +1,181 @@
+.notifications-page {
+    padding: 20px 5%;
+    padding-bottom: 120px;
+}
+
+.notifications-heading {
+    margin-bottom: 25px;
+}
+
+.notifications-heading h1 {
+    color: navy;
+    margin-bottom: 5px;
+}
+
+.notifications-heading p {
+    color: gray;
+}
+
+.notification-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.notification-card {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.notification-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.notification-icon.pending {
+    background-color: #fff2cc;
+    color: #997000;
+}
+
+.notification-icon.accepted {
+    background-color: #d9f2df;
+    color: #26733a;
+}
+
+.notification-icon.declined {
+    background-color: #f8dada;
+    color: #a52828;
+}
+
+.notification-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.notification-top h3 {
+    color: navy;
+    font-size: 16px;
+}
+
+.notification-status {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+
+.notification-status.pending {
+    background-color: #fff2cc;
+    color: #997000;
+}
+
+.notification-status.accepted {
+    background-color: #d9f2df;
+    color: #26733a;
+}
+
+.notification-status.declined {
+    background-color: #f8dada;
+    color: #a52828;
+}
+
+.notification-content p {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.notification-ride {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    background-color: #f5f6f8;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.notification-ride strong {
+    color: navy;
+}
+
+.notification-ride span {
+    color: #555;
+}
+
+.notification-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.notification-bottom small {
+    color: gray;
+}
+
+.notification-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.notification-actions form {
+    margin: 0;
+}
+
+.notification-actions button {
+    padding: 7px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.accept-button {
+    background-color: navy;
+    color: white;
+}
+
+.decline-button {
+    background-color: #eee;
+    color: #333;
+}
+
+.empty-notifications {
+    text-align: center;
+    padding: 50px 15px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.empty-notifications h3 {
+    color: navy;
+    margin-bottom: 10px;
+}
+
+.empty-notifications p {
+    color: gray;
+    font-size: 14px;
+}
