@@ -22,14 +22,14 @@
             </form>  
         </div>
         <div class="nav-object">
-            <form id="home" action="<%= __dirname %>1/notifications" method="get">
+            <form id="home" action="<%= __dirname %><%= user.creator_id %>/notifications" method="get">
                 <button type="submit">
                     <img src="<%= __path=="/:id/notifications" ? "/images/icons/chat-notification-inverse.png" : "/images/icons/chat-notification.png" %>" alt="Notification Icon">
                 </button>
             </form>
         </div>
         <div class="nav-object">
-            <form id="home" action="<%= __dirname %>1/settings" method="get">
+            <form id="home" action="<%= __dirname %><%= user.creator_id %>/settings" method="get">
                 <button type="submit">
                     <img src="<%= __path=="/:id/settings" ? "/images/icons/user-inverse.png" : "/images/icons/user.png" %>" alt="Settings Icon">
                 </button>

@@ -58,7 +58,7 @@
         <h1>Past Rides</h1>
         <p>View your previously completed rides.</p>
 
-        <% if (past_rides && past_rides.length > 0) { %>
+        <% if (locals.past_rides && locals.past_rides.length > 0) { %>
             <div class="past-rides-container">
                 <% past_rides.forEach(ride => { %>
                     <div class="past-ride">

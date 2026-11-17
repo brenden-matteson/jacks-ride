@@ -161,6 +161,7 @@ app.get("/:id/ride", async (req, res) => {
             __dirname,
             __pagename,
             __path,
+            user: user[0]
         });
     }
     catch (error) 
@@ -180,7 +181,8 @@ app.get("/search", async (req, res) => {
         res.render("search.ejs", {
             __dirname,
             __pagename,
-            __path
+            __path,
+            user: user[0]
         });
     }
     catch (error) 
@@ -296,7 +298,8 @@ app.get("/:id/notifications", async (req, res) => {
         res.render("notifications.ejs", {
             __dirname,
             __pagename,
-            __path
+            __path,
+            user: user[0]
         });
     }
     catch (error) 
@@ -315,7 +318,8 @@ app.get("/:id/settings", async (req, res) => {
     try {
         res.render("settings.ejs", {
             __dirname,
-            __path
+            __path,
+            user: user[0]
         });
     }
     catch (error) 
