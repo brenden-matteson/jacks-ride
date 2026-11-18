@@ -287,7 +287,7 @@ app.post("/add-post", async (req, res) => {
 });
 
 // get notifications page
-app.get("/:id/notifications", async (req, res) => {
+app.get("/notifications", async (req, res) => {
 
     const __pagename = "JacksRide Activity";
     const __path = req.route.path;
