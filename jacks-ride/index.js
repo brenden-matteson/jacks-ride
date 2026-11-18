@@ -50,6 +50,10 @@ let user = [
 
 // logged in boolean (REPLACE WITH NAU CAS VARIFICATION)
 let loggedIn = true;
+let user_creator_id = 1;
+
+// user gathered from db instead of DUMMY user, will have to comment this out for server to run
+// let user = await getUser(user_creator_id);
 
 // query helpers
 async function getRides(filter) {
@@ -101,6 +105,26 @@ async function getRides(filter) {
     const result = await db.query(query, params);
 
     // return the result
+    return result.rows;
+}
+
+async function getUser(id) {
+    let query = `
+        SELECT * FROM users WHERE creator_id = ${id}
+    `;
+
+    const result = await db.query(query);
+
+    return result.rows;
+}
+
+async function getConversations(id) {
+    let query = `
+        SELECT * FROM conversations WHERE rider_id = ${id} OR driver_id = ${id}
+    `;
+
+    const result = await db.query(query);
+
     return result.rows;
 }
 
@@ -291,7 +315,8 @@ app.get("/notifications", async (req, res) => {
 
     const __pagename = "JacksRide Activity";
     const __path = req.route.path;
-    const account_id = req.params.id;
+
+
 
     try {
         res.render("notifications.ejs", {

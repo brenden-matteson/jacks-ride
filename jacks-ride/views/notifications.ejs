@@ -103,6 +103,38 @@
         <% } %>
 
     </div>
+
+    <div class="notifications-heading">
+        <h1>Messages</h1>
+        <p>Conversations between you and your drivers.</p>
+    </div>
+
+    <div class="notification-feed">
+
+        <% if (locals.conversations && locals.conversations.length > 0) { %>
+
+            <% conversations.forEach(conversation => { %>
+
+                <div class="notification-card">
+                    <div class="notification-content">
+
+                        
+
+                    </div>
+                </div>
+
+            <% }); %>
+
+        <% } else { %>
+
+            <div class="empty-notifications">
+                <h3>No Messages Yet</h3>
+                <p>When you are someone else messages you, they will appear here.</p>
+            </div>
+
+        <% } %>
+
+    </div>
 </div>
 
 <%- include("partials/navigation.ejs") %>
