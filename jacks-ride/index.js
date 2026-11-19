@@ -328,13 +328,38 @@ app.get("/notifications", async (req, res) => {
         }
     ]
 
+    // DUMMY conversation response
+    const all_conversations = [
+        {
+            conversation_id: 1,
+            user1_id: 1,
+            user1_name: "Brenden Matteson",
+            user2_id: 3,
+            user2_name: "Maddux Houseman",
+            created_at: "11-15-2026",
+            last_message_at: "11-15-2026 14:30:00" 
+        },
+        {
+            conversation_id: 2,
+            user1_id: 1,
+            user1_name: "Brenden Matteson",
+            user2_id: 2,
+            user2_name: "Ava Sabo",
+            created_at: "11-15-2026",
+            last_message_at: "11-15-2026 12:30:00" 
+        }
+    ]
+
+    const conversations = all_conversations.filter((element) => element.user1_id == user[0].creator_id || element.user2_id == user[0].creator_id );
+
     try {
         res.render("notifications.ejs", {
             __dirname,
             __pagename,
             __path,
             user: user[0],
-            notifications: notifications
+            notifications: notifications,
+            conversations: conversations,
         });
     }
     catch (error) 
@@ -343,6 +368,84 @@ app.get("/notifications", async (req, res) => {
         res.status(500).send("Error loading notifications");
     }
 });
+
+app.get("/:id/conversation", async (req, res) => {
+
+    const __path = req.route.path;
+    const conversation_id = req.params.id;
+
+    // DUMMY conversation response
+    const all_conversations = [
+        {
+            conversation_id: 1,
+            user1_id: 1,
+            user1_name: "Brenden Matteson",
+            user1_role: "Driver",
+            user2_id: 3,
+            user2_name: "Maddux Houseman",
+            user2_role: "Rider",
+            created_at: "11-15-2026",
+            last_message_at: "11-15-2026 14:30:00" 
+        },
+        {
+            conversation_id: 2,
+            user1_id: 1,
+            user1_name: "Brenden Matteson",
+            user1_role: "Driver",
+            user2_id: 2,
+            user2_name: "Ava Sabo",
+            user2_role: "Rider",
+            created_at: "11-15-2026",
+            last_message_at: "11-15-2026 12:30:00" 
+        }
+    ]
+
+    const conversation = all_conversations.filter((element) => element.conversation_id == conversation_id);
+
+    const all_messages = [
+        {
+            message_id: 1,
+            conversation_id: 1,
+            sender_id: 3,
+            message_text: "Hey, I have a couple bags, do you have extra cargo space?",
+            sent_at: "11-15-2026 14:30:00",
+            read_at: "11-15-2026 14:31:00"
+        },
+        {
+            message_id: 2,
+            conversation_id: 1,
+            sender_id: 1,
+            message_text: "Yeah I do",
+            sent_at: "11-15-2026 14:32:00",
+            read_at: "11-15-2026 14:33:00"
+        },
+        {
+            message_id: 3,
+            conversation_id: 1,
+            sender_id: 3,
+            message_text: "Okay great, thanks",
+            sent_at: "11-15-2026 14:34:00",
+            read_at: "11-15-2026 14:40:00"
+        }
+    ]
+
+    const messages = all_messages.reverse();
+
+    try {
+        res.render("conversation.ejs", {
+            __dirname,
+            __path,
+            user: user[0],
+            conversation: conversation[0],
+            messages: messages
+        });
+    }
+    catch (error) 
+    {
+        console.error("Error loading conversation:", error.stack);
+        res.status(500).send("Error loading conversation");
+    }
+})
 
 // get settings page
 app.get("/:id/settings", async (req, res) => {
