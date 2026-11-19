@@ -49,13 +49,13 @@ CREATE TABLE IF NOT EXISTS messages (
 -- conversations
 CREATE TABLE IF NOT EXISTS conversations (
     conversation_id SERIAL PRIMARY KEY,
-    rider_id        INT         NOT NULL,
-    driver_id       INT         NOT NULL,
+    user1_id        INT         NOT NULL,
+    user2_id       INT         NOT NULL,
     created_at      TIMESTAMP DEFAULT NOW(),
     last_message_at TIMESTAMP DEFAULT NOW(),
 
-    FOREIGN KEY (rider_id) REFERENCES users(creator_id),
-    FOREIGN KEY (driver_id) REFERENCES users(creator_id),
+    FOREIGN KEY (user1_id) REFERENCES users(creator_id),
+    FOREIGN KEY (user2_id) REFERENCES users(creator_id),
 
-    UNIQUE (rider_id, driver_id)
+    UNIQUE (user1_id, user2_id)
 );
