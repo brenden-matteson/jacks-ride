@@ -114,15 +114,22 @@
         <% if (locals.conversations && locals.conversations.length > 0) { %>
 
             <% conversations.forEach(conversation => { %>
+                <a href="<%= __dirname %><%= conversation.conversation_id %>/conversation">
+                    <div class="notification-card">
+                        <div class="notification-content">
+                            
+                            <p>
+                                <% if (user.creator_id == conversation.user1_id) { %>
+                                    <strong><%= conversation.user2_name %></strong>
+                                <% } else { %>
+                                    <strong><%= conversation.user1_name %></strong>
+                                <% } %>
+                                <%= conversation.last_message_at %>
+                            </p>
 
-                <div class="notification-card">
-                    <div class="notification-content">
-
-                        
-
+                        </div>
                     </div>
-                </div>
-
+                </a>
             <% }); %>
 
         <% } else { %>
