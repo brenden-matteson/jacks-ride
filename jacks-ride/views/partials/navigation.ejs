@@ -24,7 +24,7 @@
         <div class="nav-object">
             <form id="home" action="<%= __dirname %>notifications" method="get">
                 <button type="submit">
-                    <img src="<%= __path=="/notifications" ? "/images/icons/chat-notification-inverse.png" : "/images/icons/chat-notification.png" %>" alt="Notification Icon">
+                    <img src="<%= __path=="/notifications" || __path=="/:id/conversation" ? "/images/icons/chat-notification-inverse.png" : "/images/icons/chat-notification.png" %>" alt="Notification Icon">
                 </button>
             </form>
         </div>

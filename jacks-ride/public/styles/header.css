@@ -12,11 +12,11 @@ body {
 header {
     position: sticky;
     top: 0;
-    padding-top: 10px;
     background-color: white;
 }
 
 .header-container {
+    padding-top: 10px;
     width: 100%;
     color: navy;
     display: flex;
