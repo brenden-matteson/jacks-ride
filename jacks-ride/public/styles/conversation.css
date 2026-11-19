@@ -1,0 +1,116 @@
+.user-header {
+    flex-shrink: 0;
+    z-index: 9999; 
+    box-sizing: border-box;
+    padding: 15px;
+    border-bottom: 2px solid lightgray;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-header h1 {
+    margin: 0;
+}
+
+.user-header h3 {
+    margin: 0;
+    font-style: italic;
+    color: darkslategray;
+}
+
+.notification-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: bold;
+    border: 3px solid black;
+    margin-left: 10px;
+}
+
+.back-arrow {
+    font-size: 50px;
+    margin-right: 10px;
+}
+
+.conversation-body {
+    display: flex;
+    flex-direction: column;
+    height: calc(100dvh - 100px);
+}
+
+.conversation-container {
+    display: flex;
+    flex-direction: column-reverse;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    align-items: center;
+}
+
+.message {
+    margin: 15px;
+}
+
+.message { 
+    padding: 10px 15px; 
+    border-radius: 24px; 
+    max-width: 75%; 
+    font-size: large;
+}
+
+.sent { 
+    align-self: flex-end; 
+    background: navy; 
+    color: white;
+}
+
+.received { 
+    align-self: flex-start; 
+    background: #eee; 
+    color: #333;
+}
+
+.message-input { 
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 24px;
+    padding: 6px 12px;
+    background-color: lightgray;
+    width: 95%;
+    box-sizing: border-box;
+    align-self: center;
+}
+
+.message-input button img {
+    height: 20px;
+}
+
+.message-input input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 16px;
+    padding: 4px 8px;
+}
+
+.message-input button {
+    background: none;
+    border: 3px solid navy;
+    cursor: pointer;
+    display: flex;
+    color: navy;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 16px;
+}
