@@ -99,7 +99,7 @@ async function getRides(filter) {
     }
 
     // order by date descending
-    query += " ORDER BY r.date_created DESC";
+    query += " ORDER BY r.ride_date ASC";
 
     // execute the query
     const result = await db.query(query, params);
@@ -316,14 +316,25 @@ app.get("/notifications", async (req, res) => {
     const __pagename = "JacksRide Activity";
     const __path = req.route.path;
 
-
+    // DUMMY notifications response
+    const notifications = [
+        {
+            status: "Pending",
+            ride_title: "Going to Tucson this weekend.",
+            destination: "Tucson, AZ",
+            ride_date: "11-17-2026",
+            request_date: "11-15-2026",
+            user_name: "Maddux Houseman"
+        }
+    ]
 
     try {
         res.render("notifications.ejs", {
             __dirname,
             __pagename,
             __path,
-            user: user[0]
+            user: user[0],
+            notifications: notifications
         });
     }
     catch (error) 

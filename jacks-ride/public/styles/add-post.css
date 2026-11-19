@@ -21,7 +21,7 @@ h3, h4 {
     margin-left: 25%;
 }
 
-.form-group input, button, textarea {
+.form-group input, .form-group button, .form-group textarea {
     padding: 5px 20px;
     width: 100%;
     box-sizing: border-box;
