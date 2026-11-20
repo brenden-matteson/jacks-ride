@@ -22,6 +22,7 @@ form.addEventListener('change', (event) => {
         amount_requested.placeholder = "Enter the amount you are willing to contribute ($)";
         seats_available_section.style.display = "none";
         seats_available.required = false;
+        seats_available.value = null;
         yes_pet_button.labels[0].textContent = "Bringing a pet";
     }   
     else
@@ -32,6 +33,7 @@ form.addEventListener('change', (event) => {
         amount_requested.placeholder = "Enter requested amount ($)";
         seats_available_section.style.display = "block";
         seats_available.required = true;
+        seats_available.value = null;
         yes_pet_button.labels[0].textContent = "Pets OK";
     }
   }
